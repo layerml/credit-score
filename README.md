@@ -6,7 +6,7 @@ Layer is a Declarative MLOps platform that empowers Data Science teams to implem
 This repo contain a Layer project that you can quickly use to boostrap your machine learning projects. 
 
 The empty Layer Project has the following files:
-.
+```
 ├── .layer
 │   ├── project.yml                 # Main project configuration file
 ├── data
@@ -19,3 +19,4 @@ The empty Layer Project has the following files:
         ├── model.yml               # Training directives of your model
         ├── model.py                # Definition of your model
         └── requirements.txt        # Environment config file, if required
+```
