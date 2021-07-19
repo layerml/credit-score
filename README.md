@@ -10,7 +10,7 @@ Install Layer:
 pip install layer-sdk
 ```
 
-Clone this repo:
+Clone this empty Layer Project:
 ```
 layer clone github.com/layerml/empty
 ```
