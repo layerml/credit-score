@@ -1,0 +1,21 @@
+# New Project Example
+#
+# Any directory includes an `dataset.yml` will be treated as a dataset
+# project. In this `yaml` file, we will define the attributes of our
+# featureset.
+
+apiVersion: 1
+
+type: featureset
+
+name: "features"
+description: "My Features"
+
+features: []
+
+schema:
+  # All of the features above should include this primary key. It will be used to join the features
+  # together.
+  primary_keys: []
+
+materializations: []

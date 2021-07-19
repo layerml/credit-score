@@ -1,0 +1,8 @@
+# New Project Example
+#
+# Project configuration file
+
+apiVersion: 1
+
+# Name of your project
+name: "My Project"

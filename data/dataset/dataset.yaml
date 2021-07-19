@@ -1,0 +1,16 @@
+# New Project Example
+
+apiVersion: 1
+
+# Unique name of this dataset which will be used in this project to
+# refer to this dataset
+name: "dataset"
+type: source
+
+schema:
+  primary_keys: []
+
+materializations:
+  - type: table
+    target: layer
+    table_name: "dataset"
