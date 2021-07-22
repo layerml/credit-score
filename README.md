@@ -12,7 +12,7 @@ pip install layer-sdk
 
 Clone this empty Layer Project:
 ```
-layer clone github.com/layerml/empty
+layer clone https://github.com/layerml/empty
 ```
 
 This repo contain a Layer project that you can quickly use to boostrap your machine learning projects. 
