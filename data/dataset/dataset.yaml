@@ -7,9 +7,6 @@ apiVersion: 1
 name: "dataset"
 type: source
 
-schema:
-  primary_keys: []
-
 materializations:
   - type: table
     target: layer
