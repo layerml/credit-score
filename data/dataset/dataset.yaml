@@ -9,4 +9,4 @@ type: source
 
 materialization:
     target: layer-public-datasets
-    table_name: "dataset"
+    table_name: "your_table_name"
