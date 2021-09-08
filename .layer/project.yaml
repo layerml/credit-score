@@ -1,6 +1,7 @@
 # New Project Example
 #
 # Project configuration file
+# For more information on Project Configuration: https://docs.beta.layer.co/docs/projects/project-yml
 
 apiVersion: 1
 
