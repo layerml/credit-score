@@ -15,20 +15,34 @@ Clone this empty Layer Project:
 layer clone https://github.com/layerml/empty
 ```
 
-This repo contains a Layer project that you can quickly use to boostrap your machine learning projects. 
+This repo contains a Layer project that you can quickly use to boostrap your machine learning projects.
+
+Note: Use either Python or SQL featuresets template. Layer does not support multiple language featuresets at the moment.
 
 The empty Layer Project has the following files:
+
 ```
-├── .layer
-│   ├── project.yml                 # Main project configuration file
-├── data
-│   ├── features        
-│   │   ├── dataset.yml             # Definition of your featureset
-│   └── dataset         
-│       └── dataset.yml             # Definition of the source data
-└── models
-    └── model           
-        ├── model.yml               # Training directives of your model
-        ├── model.py                # Definition of your model
-        └── requirements.txt        # Environment config file, if required
+|____.layer
+| |____project.yaml                   # Main project configuration file
+|____data
+| |____dataset
+| | |____dataset.yaml                 # Definition of the source data
+| |____features
+| | |____featureset1                  # Template for SQL featureset
+| | | |____featureset1_feature1.sql   # SQL file for your feature
+| | | |____featureset1_feature2.sql   # SQL file for your feature
+| | | |____dataset.yaml               # Definition of your sql featureset
+| | |____featureset2                  # Template for Python featureset
+| | | |____featureset2_feature1
+| | | | |____feature.py               # Python file for your feature
+| | | | |____requirements.txt         # Environment config file, if required 
+| | | |____featureset2_feature2
+| | | | |____feature.py               # Python file for your feature
+| | | | |____requirements.txt         # Environment config file, if required 
+| | | |____dataset.yaml               # Definition of your Python featureset
+|____models
+| |____model
+| | |____model.py                     # Training directives of your model
+| | |____model.yaml                   # Training directives of your model
+| | |____requirements.txt             # Environment config file, if required               
 ```

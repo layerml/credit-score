@@ -13,7 +13,15 @@ type: featureset
 name: "features"
 description: "My Features"
 
-features: []
+features:
+    - name: featureset2_feature1
+      description: "Description for the Feature 1"
+      source: featureset2_feature1/feature.py
+      environment: feature1/requirements.txt
+    - name: featureset2_feature2
+      description: "Description for the Feature 2"
+      source: featureset2_feature2/feature.py
+      environment: feature2/requirements.txt
 
 materialization:
     target: layer-public-datasets

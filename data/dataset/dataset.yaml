@@ -5,7 +5,7 @@ apiVersion: 1
 
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
-name: "dataset"
+name: "layer_dataset_name_for_your_table"
 type: source
 
 materialization:
