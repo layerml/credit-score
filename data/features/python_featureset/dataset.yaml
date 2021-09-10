@@ -14,12 +14,14 @@ name: "features"
 description: "My Features"
 
 features:
-    - name: featureset1_feature1
+    - name: python_featureset_feature1
       description: "Description for the Feature 1"
-      source: featureset1_feature1.sql
-    - name: featureset1_feature2
+      source: python_featureset_feature1/feature1.py
+      environment: feature1/requirements.txt
+    - name: python_featureset_feature2
       description: "Description for the Feature 2"
-      source: featureset1_feature2.sql
+      source: python_featureset_feature2/feature2.py
+      environment: feature2/requirements.txt
 
 materialization:
     target: layer-public-datasets

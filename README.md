@@ -23,26 +23,26 @@ The empty Layer Project has the following files:
 
 ```
 |____.layer
-| |____project.yaml                   # Main project configuration file
+| |____project.yaml                      # Main project configuration file
 |____data
 | |____dataset
-| | |____dataset.yaml                 # Definition of the source data
+| | |____dataset.yaml                    # Definition of the source data
 | |____features
-| | |____featureset1                  # Template for SQL featureset
-| | | |____featureset1_feature1.sql   # SQL file for your feature
-| | | |____featureset1_feature2.sql   # SQL file for your feature
-| | | |____dataset.yaml               # Definition of your sql featureset
-| | |____featureset2                  # Template for Python featureset
-| | | |____featureset2_feature1
-| | | | |____feature.py               # Python file for your feature
-| | | | |____requirements.txt         # Environment config file, if required 
-| | | |____featureset2_feature2
-| | | | |____feature.py               # Python file for your feature
-| | | | |____requirements.txt         # Environment config file, if required 
-| | | |____dataset.yaml               # Definition of your Python featureset
+| | |____sql_featureset                  # Template for SQL featureset
+| | | |____sql_featureset_feature1.sql   # SQL file for your feature
+| | | |____sql_featureset_feature2.sql   # SQL file for your feature
+| | | |____dataset.yaml                  # Definition of your sql featureset
+| | |____python_featureset               # Template for Python featureset
+| | | |____python_featureset_feature1
+| | | | |____feature1.py                 # Python file for your feature
+| | | | |____requirements.txt            # Environment config file, if required 
+| | | |____python_featureset_feature2
+| | | | |____feature2.py                 # Python file for your feature
+| | | | |____requirements.txt            # Environment config file, if required 
+| | | |____dataset.yaml                  # Definition of your Python featureset
 |____models
 | |____model
-| | |____model.py                     # Training directives of your model
-| | |____model.yaml                   # Training directives of your model
-| | |____requirements.txt             # Environment config file, if required               
+| | |____model.py                        # Training directives of your model
+| | |____model.yaml                      # Training directives of your model
+| | |____requirements.txt                # Environment config file, if required               
 ```
