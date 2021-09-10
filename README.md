@@ -39,7 +39,7 @@ The empty Layer Project has the following files:
 | | | |____featureset2_feature2
 | | | | |____feature.py               # Python file for your feature
 | | | | |____requirements.txt         # Environment config file, if required 
-| | | |____dataset.yaml                 # Definition of your Python featureset
+| | | |____dataset.yaml               # Definition of your Python featureset
 |____models
 | |____model
 | | |____model.py                     # Training directives of your model
