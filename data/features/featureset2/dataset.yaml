@@ -1,0 +1,27 @@
+# New Project Example
+#
+# Any directory includes an `dataset.yaml will be treated as a dataset
+# project. In this `yaml` file, we will define the attributes of our
+# featureset.
+
+# For more information on Featureset Configuration: https://docs.beta.layer.co/docs/datacatalog/featuresets
+
+apiVersion: 1
+
+type: featureset
+
+name: "features"
+description: "My Features"
+
+features:
+    - name: featureset2_feature1
+      description: "Description for the Feature 1"
+      source: feature1/feature.py
+      environment: feature1/requirements.txt
+    - name: featureset2_feature2
+      description: "Description for the Feature 2"
+      source: feature2/feature.py
+      environment: feature2/requirements.txt
+
+materialization:
+    target: layer-public-datasets

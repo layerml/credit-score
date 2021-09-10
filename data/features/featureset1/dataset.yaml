@@ -13,7 +13,13 @@ type: featureset
 name: "features"
 description: "My Features"
 
-features: []
+features:
+    - name: featureset1_feature1
+      description: "Description for the Feature 1"
+      source: feature1.sql
+    - name: featureset1_feature2
+      description: "Description for the Feature 2"
+      source: feature2.sql
 
 materialization:
     target: layer-public-datasets
