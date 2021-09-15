@@ -3,6 +3,7 @@ Layer is a [Declarative MLOps Platform](https://layer.co/) that empowers Data Sc
 
 
 # Getting started
+
 Clone this repo to start a new Layer project. 
 
 Install Layer:
@@ -15,9 +16,9 @@ Clone this empty Layer Project:
 layer clone https://github.com/layerml/empty
 ```
 
-This repo contains a Layer project that you can quickly use to boostrap your machine learning projects.
+This repo contains a Layer project that you can quickly use to bootstrap your machine learning projects.
 
-Note: Use either Python or SQL featuresets template. Layer does not support multiple language featuresets at the moment.
+**Note:** Use either Python or SQL featuresets template. Layer does not support multiple language featuresets at the moment.
 
 The empty Layer Project has the following files:
 
