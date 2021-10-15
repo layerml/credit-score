@@ -2,6 +2,7 @@
 # Layer joins your singular features using that ID column.
 
 from layer import Dataset
+from typing import Any
 
 
 def build_feature(layer_dataset: Dataset("layer_dataset_name_for_your_table")) -> Any:
