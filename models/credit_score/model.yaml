@@ -6,11 +6,11 @@
 apiVersion: 1
 
 # Name and description of our model
-name: "model"
-description: "My Predictor"
+name: "credit_score_model"
+description: "Credit score model"
 
 training:
-  name: model_training
+  name: credit_score_model_training
   description: "My Model Training"
 
   # The source model definition file with a `train_model` method
