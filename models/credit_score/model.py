@@ -73,7 +73,7 @@ def train_model(train: Train,
     previous_application_features_df = pf.to_pandas()
     # Merge featuresets to the dataset
     application_data = application_df.merge(application_features_df, on='SK_ID_CURR')
-    previous_application_data = application_df.merge(previous_application_features_df, on='SK_ID_CURR')
+    previous_application_data = previous_application_df.merge(previous_application_features_df, on='SK_ID_CURR')
     # Merge all of them
     dff = installments_df.merge(previous_application_data, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(
                            pos_df, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(application_data, on='SK_ID_CURR')
