@@ -12,6 +12,7 @@ type: featureset
 
 name: "previous_application_features"
 description: "Previous loan application features"
+fabric: "f-medium"
 
 features:
     - name: applied_awarded_amount_diff

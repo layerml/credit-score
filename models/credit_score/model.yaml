@@ -18,3 +18,6 @@ training:
 
   # File includes the required python libraries with their correct versions
   environment: requirements.txt
+    # The software and hardware environment needed for this training,
+    # as defined in https://docs.beta.layer.co/docs/reference/fabrics
+  fabric: "f-medium"

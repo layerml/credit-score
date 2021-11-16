@@ -12,6 +12,7 @@ type: featureset
 
 name: "application_features"
 description: "Loan application features"
+fabric: "f-medium"
 
 features:
     - name: credit_income_ratio
