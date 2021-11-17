@@ -80,6 +80,7 @@ def train_model(train: Train,
     # Obtain the X and y variables
     X = dff.drop(["SK_ID_PREV", "SK_ID_CURR", "TARGET"], axis=1)
     y = dff["TARGET"]
+    dff = dff.sample(50, random_state=0)
     # Split the data into a training and testing set
     random_state = 13
     test_size = 0.3

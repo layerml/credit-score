@@ -5,8 +5,8 @@ from layer import Dataset
 from typing import Any
 
 
-def build_feature(layer_dataset: Dataset("application_train")) -> Any:
-    df = layer_dataset.to_pandas()
+def build_feature(application_dataset: Dataset("application_train")) -> Any:
+    df = application_dataset.to_pandas()
     df['INCOME_CREDIT_RATIO'] = df['AMT_CREDIT'] / df['AMT_INCOME_TOTAL']
     data = df[['SK_ID_CURR', 'INCOME_CREDIT_RATIO']]
 
