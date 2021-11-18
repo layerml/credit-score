@@ -8,6 +8,6 @@ from typing import Any
 def build_feature(application_dataset: Dataset("application_train")) -> Any:
     df = application_dataset.to_pandas()
     df['CREDIT_INCOME_RATIO'] = df['AMT_CREDIT'] / df['AMT_INCOME_TOTAL']
-    data = df[['SK_ID_CURR', 'CREDIT_INCOME_RATIO']]
+    data = df[['INDEX', 'CREDIT_INCOME_RATIO']]
 
     return data

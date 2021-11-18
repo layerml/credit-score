@@ -8,11 +8,13 @@ from layer import Featureset, Dataset, Train
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import average_precision_score, roc_auc_score, precision_score, recall_score, f1_score
 # This estimator is much faster than GradientBoostingClassifier for big datasets (n_samples >= 10 000).
 # https://scikit-learn.org/stable/modules/ensemble.html#histogram-based-gradient-boosting
 from sklearn.ensemble import HistGradientBoostingClassifier
+
 
 def train_model(train: Train,
                 application: Dataset("application_train"),
@@ -39,7 +41,8 @@ def train_model(train: Train,
        model: Trained model object
     """
     application_df = application.to_pandas()
-    columns = ['OWN_CAR_AGE', 'OCCUPATION_TYPE', 'EXT_SOURCE_1', 'EXT_SOURCE_3', 'EXT_SOURCE_2', 'APARTMENTS_AVG',
+    columns = ['OWN_CAR_AGE', 'OCCUPATION_TYPE', 'EXT_SOURCE_1', 'INDEX', 'EXT_SOURCE_3', 'EXT_SOURCE_2',
+               'APARTMENTS_AVG',
                'BASEMENTAREA_AVG',
                'YEARS_BEGINEXPLUATATION_AVG', 'COMMONAREA_AVG', 'YEARS_BUILD_AVG', 'ELEVATORS_AVG', 'ENTRANCES_AVG',
                'FLOORSMAX_AVG',
@@ -58,35 +61,54 @@ def train_model(train: Train,
                'AMT_REQ_CREDIT_BUREAU_MON', 'AMT_REQ_CREDIT_BUREAU_QRT', 'AMT_REQ_CREDIT_BUREAU_YEAR',
                'NONLIVINGAREA_AVG', 'LIVINGAREA_MODE', 'LIVINGAREA_MEDI', 'NONLIVINGAPARTMENTS_MODE']
 
-    application_df = application_df.drop(columns=columns, axis=1)
     previous_application_df = previous_application.to_pandas()
-    previous_columns = ['AMT_DOWN_PAYMENT', 'RATE_DOWN_PAYMENT', 'RATE_INTEREST_PRIMARY', 'RATE_INTEREST_PRIVILEGED',
+    previous_columns = ['AMT_DOWN_PAYMENT', 'INDEX', 'RATE_DOWN_PAYMENT', 'RATE_INTEREST_PRIMARY',
+                        'RATE_INTEREST_PRIVILEGED',
                         'DAYS_FIRST_DRAWING', 'DAYS_FIRST_DUE', 'DAYS_LAST_DUE_1ST_VERSION', 'DAYS_LAST_DUE',
                         'DAYS_TERMINATION',
                         'NFLAG_INSURED_ON_APPROVAL']
     # Datasets
-    previous_application_df = previous_application_df.drop(columns=previous_columns, axis=1)
-    installments_df = installments.to_pandas()
     pos_df = pos.to_pandas()
+    pos_df = pos_df.drop(columns=['INDEX'], axis=1)
+    installments_df = installments.to_pandas()
+    installments_df = installments_df.drop(columns=['INDEX'], axis=1)
+
     # Featuresets
     application_features_df = af.to_pandas()
     previous_application_features_df = pf.to_pandas()
+
     # Merge featuresets to the dataset
-    application_data = application_df.merge(application_features_df, on='SK_ID_CURR')
-    previous_application_data = previous_application_df.merge(previous_application_features_df, on='SK_ID_CURR')
+    application_data = application_df.merge(application_features_df, on='INDEX')
+    application_data = application_data.drop(columns=columns, axis=1)
+
+    previous_application_data = previous_application_df.merge(previous_application_features_df, on='INDEX')
+    previous_application_df = previous_application_data.drop(columns=previous_columns, axis=1)
+
     # Merge all of them
-    dff = installments_df.merge(previous_application_data, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(
-                           pos_df, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(application_data, on='SK_ID_CURR')
+    dff = installments_df.merge(pos_df, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(application_data,
+                                                                               on='SK_ID_CURR').merge(
+        previous_application_df, on=['SK_ID_PREV', 'SK_ID_CURR'])
+    # Debug prints
+    print("previous_application_features_df", len(previous_application_features_df))
+    print("application_features_df", len(application_features_df))
+
+    print("application_train", len(application_df))
+    print("application_data", len(application_data))
+    print("previous_application", len(previous_application_df))
+    print("installments_df", len(installments_df))
+    print("previous_application_data", len(previous_application_data))
+    print("pos_df", len(pos_df))
+    print("dff", len(dff))
+
     # Obtain the X and y variables
     X = dff.drop(["SK_ID_PREV", "SK_ID_CURR", "TARGET"], axis=1)
     y = dff["TARGET"]
-    dff = dff.sample(50, random_state=0)
     # Split the data into a training and testing set
     random_state = 13
     test_size = 0.3
     # Log parameters, these can be used for comparing different models on the model catalog
     train.log_parameter("test_size", test_size)
-    train.log_parameter("random_state", random_state)
+    # train.log_parameter("random_state", random_state)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size,
                                                         random_state=random_state)
     # Here we register input & output of the train. Layer will use
@@ -111,11 +133,11 @@ def train_model(train: Train,
     random_state = 42
     early_stopping = True
     # Log model parameters
-    train.log_parameter("learning_rate", learning_rate)
-    train.log_parameter("max_depth", max_depth)
-    train.log_parameter("min_samples_leaf", min_samples_leaf)
-    train.log_parameter("random_state", random_state)
-    train.log_parameter("early_stopping", early_stopping)
+    # train.log_parameter("learning_rate", learning_rate)
+    # train.log_parameter("max_depth", max_depth)
+    # train.log_parameter("min_samples_leaf", min_samples_leaf)
+    # train.log_parameter("random_state", random_state)
+    # train.log_parameter("early_stopping", early_stopping)
     # Model: Define a HistGradient Boosting Classifier
     model = HistGradientBoostingClassifier(learning_rate=learning_rate,
                                            max_depth=max_depth,
@@ -128,12 +150,9 @@ def train_model(train: Train,
     pipeline.fit(X_train, y_train)
     # Predict probabilities of target
     probs = pipeline.predict_proba(X_test)[:, 1]
-    # Calculate average precision and area under the receiver operating characteric curve (ROC AUC)
+    # Calculate average precision and area under the receiver operating characteristic curve (ROC AUC)
     avg_precision = average_precision_score(y_test, probs, pos_label=1)
     auc = roc_auc_score(y_test, probs)
     train.log_metric("avg_precision", avg_precision)
     train.log_metric("auc", auc)
     return pipeline
-
-
-

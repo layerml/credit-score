@@ -5,9 +5,10 @@ from layer import Dataset
 from typing import Any
 
 
-def build_feature(previous_application: Dataset("previous_application")) -> Any:
-    df = previous_application.to_pandas()
+def build_feature(previous_application_dataset: Dataset("previous_application")) -> Any:
+    df = previous_application_dataset.to_pandas()
+    df = df.sample(1000, random_state=1000)
     df['GOODS_PRICE_APPLIED_DIFF'] = df['AMT_GOODS_PRICE'] - df['AMT_APPLICATION']
-    data = df[['SK_ID_CURR', 'GOODS_PRICE_APPLIED_DIFF']]
+    data = df[['INDEX', 'GOODS_PRICE_APPLIED_DIFF']]
 
     return data

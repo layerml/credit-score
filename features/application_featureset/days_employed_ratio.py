@@ -8,6 +8,6 @@ from typing import Any
 def build_feature(application_dataset: Dataset("application_train")) -> Any:
     df = application_dataset.to_pandas()
     df['DAYS_EMPLOYED_RATIO'] = df['DAYS_EMPLOYED'] / df['DAYS_BIRTH']
-    data = df[['SK_ID_CURR', 'DAYS_EMPLOYED_RATIO']]
+    data = df[['INDEX', 'DAYS_EMPLOYED_RATIO']]
 
     return data
