@@ -4,7 +4,7 @@
 # In this `yaml` file, we will define the attributes of our model.
 
 apiVersion: 1
-
+type: model
 # Name and description of our model
 name: "credit_score_model"
 description: "Credit score model"

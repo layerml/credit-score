@@ -5,9 +5,9 @@ apiVersion: 1
 
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
-name: "installments_payments"
-type: source
+name: "previous_application"
+type: dataset
 
 materialization:
     target: layer-public-datasets
-    table_name: "installments_payments"
+    table_name: "previous_application"
