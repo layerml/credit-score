@@ -114,8 +114,8 @@ def train_model(train: Train,
     # Here we register input & output of the train. Layer will use
     # this registers to extract the signature of the model and calculate
     # the drift
-    train.register_input(X_train)
-    train.register_output(dff['TARGET'])
+    # train.register_input(X_train)
+    # train.register_output(dff['TARGET'])
     # Get all categorical columns
     categories = dff.select_dtypes(include=['object']).columns.tolist()
     # Convert the categorical columns into a numerical representation via one hot encoding
