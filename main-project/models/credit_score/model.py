@@ -8,7 +8,6 @@ from layer import Featureset, Dataset, Train
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import average_precision_score, roc_auc_score, precision_score, recall_score, f1_score
 # This estimator is much faster than GradientBoostingClassifier for big datasets (n_samples >= 10 000).
@@ -18,7 +17,6 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 
 def train_model(train: Train,
                 application: Dataset("application_train"),
-                pos: Dataset("POS_CASH_balance"),
                 installments: Dataset("installments_payments"),
                 previous_application: Dataset("previous_application"),
                 af: Featureset("application_features"),
@@ -68,8 +66,6 @@ def train_model(train: Train,
                         'DAYS_TERMINATION',
                         'NFLAG_INSURED_ON_APPROVAL']
     # Datasets
-    pos_df = pos.to_pandas()
-    pos_df = pos_df.drop(columns=['INDEX'], axis=1)
     installments_df = installments.to_pandas()
     installments_df = installments_df.drop(columns=['INDEX'], axis=1)
 
@@ -85,7 +81,7 @@ def train_model(train: Train,
     previous_application_df = previous_application_data.drop(columns=previous_columns, axis=1)
 
     # Merge all of them
-    dff = installments_df.merge(pos_df, on=['SK_ID_PREV', 'SK_ID_CURR']).merge(application_data,
+    dff = installments_df.merge(application_data,
                                                                                on='SK_ID_CURR').merge(
         previous_application_df, on=['SK_ID_PREV', 'SK_ID_CURR'])
     # Debug prints
@@ -97,7 +93,6 @@ def train_model(train: Train,
     print("previous_application", len(previous_application_df))
     print("installments_df", len(installments_df))
     print("previous_application_data", len(previous_application_data))
-    print("pos_df", len(pos_df))
     print("dff", len(dff))
 
     # Obtain the X and y variables
