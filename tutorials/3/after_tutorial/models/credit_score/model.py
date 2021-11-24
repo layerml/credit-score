@@ -9,8 +9,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
 
 
@@ -92,7 +90,9 @@ def train_model(train: Train,
     transformer = ColumnTransformer(
         transformers=[('cat', OneHotEncoder(handle_unknown='ignore', drop="first"), categories)],
         remainder='passthrough')
-    #
+    # Running dimensionality reduction algorithm such as Principal component analysis (PCA) prior to K-Means reduces
+    # the effects of the curse of dimensionality. PCA reduces the number of features. This can be done by either
+    # removing or combining features.
     pca = PCA(n_components=2, random_state=42)
     df = transformer.fit_transform(X)
     clustering_data = pca.fit_transform(df)
@@ -107,8 +107,4 @@ def train_model(train: Train,
     # Model: Define a KMeans model
     kmeans = KMeans(n_clusters=n_clusters)
     kmeans.fit(clustering_data)
-
-
-    train.log_metric("avg_precision", avg_precision)
-    train.log_metric("auc", auc)
     return kmeans

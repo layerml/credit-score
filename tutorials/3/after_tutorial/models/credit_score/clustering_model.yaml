@@ -6,11 +6,11 @@
 apiVersion: 1
 type: model
 # Name and description of our model
-name: "credit_score_model"
-description: "Credit score model"
+name: "clustering_model"
+description: "clustering model"
 
 training:
-  name: credit_score_model_training
+  name: clustering_model_training
   description: "My Model Training"
 
   # The source model definition file with a `train_model` method
