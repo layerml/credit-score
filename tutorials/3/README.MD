@@ -34,7 +34,7 @@ Folder structure:
 | | |____previous_app_features.yaml
 | | |____goods_price_applied_diff.py
 |____models
-| |____credit_score
+| |____clustering
 | | |____requirements.txt
 | | |____model.py
 | | |____clustering_model.yaml

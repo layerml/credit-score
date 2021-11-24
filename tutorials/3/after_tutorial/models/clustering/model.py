@@ -74,7 +74,7 @@ def train_model(train: Train,
         p_application_df, on=['SK_ID_PREV', 'SK_ID_CURR'])
     # Drop all null rows
     dff = dff.dropna()
-    # Obtain the X and y variables
+    # Obtain the X variable
     X = dff.drop(["SK_ID_PREV", "SK_ID_CURR"], axis=1)
     # Here we register input & output of the train. Layer will use
     # this registers to extract the signature of the model and calculate

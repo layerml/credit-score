@@ -1,0 +1,23 @@
+# New Project Example
+#
+# Any directory includes an `model.yml` will be treated as a ml model project.
+# In this `yaml` file, we will define the attributes of our model.
+
+apiVersion: 1
+type: model
+# Name and description of our model
+name: "credit_score_model"
+description: "Credit score model"
+
+training:
+  name: credit_score_model_training
+  description: "My Model Training"
+
+  # The source model definition file with a `train_model` method
+  entrypoint: model.py
+
+  # File includes the required python libraries with their correct versions
+  environment: requirements.txt
+    # The software and hardware environment needed for this training,
+    # as defined in https://docs.beta.layer.co/docs/reference/fabrics
+  fabric: "f-medium"
