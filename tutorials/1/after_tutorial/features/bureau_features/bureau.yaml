@@ -1,0 +1,32 @@
+# New Project Example
+#
+# Any directory includes an `dataset.yaml will be treated as a dataset
+# project. In this `yaml` file, we will define the attributes of our
+# featureset.
+
+# For more information on Featureset Configuration: https://docs.beta.layer.co/docs/datacatalog/featuresets
+
+apiVersion: 1
+
+type: featureset
+
+name: "bureau_features"
+description: "Previous balance features"
+fabric: "f-medium"
+
+features:
+    - name: credit_limit_above_zero
+      description: "Is the credit limit above zero?"
+      source: credit_limit.py
+      environment: requirements.txt
+    - name: has_debt
+      description: "If the customer has debt"
+      source: has_debt.py
+      environment: requirements.txt
+    - name: over_due_debt
+      description: "Customer has overdue debt"
+      source: has_overdue_debt.py
+      environment: requirements.txt
+
+materialization:
+    target: layer-public-datasets

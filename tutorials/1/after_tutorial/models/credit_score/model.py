@@ -17,10 +17,12 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 
 def train_model(train: Train,
                 application: Dataset("application_train"),
+                bureau: Dataset("bureau"),
                 installments: Dataset("installments_payments"),
                 previous_application: Dataset("previous_application"),
                 af: Featureset("application_features"),
                 pf: Featureset("previous_application_features"),
+                bureau_features: Featureset("bureau_features"),
                 ) -> Any:
     """Model train function
     This function is a reserved function and will be called by Layer
@@ -45,10 +47,12 @@ def train_model(train: Train,
     installments_df = installments.to_pandas()
     installments_df = installments_df[['SK_ID_PREV', 'SK_ID_CURR', 'DAYS_INSTALMENT', 'DAYS_ENTRY_PAYMENT',
                                        'AMT_INSTALMENT', 'AMT_PAYMENT']]
+    bureau = bureau.to_pandas()
 
     # Featuresets
     application_features_df = af.to_pandas()
     previous_application_features_df = pf.to_pandas()
+    bureau_features = bureau_features.to_pandas()
 
     # Merge feature sets to the dataset
     application_data = application_df.merge(application_features_df, on='INDEX')
@@ -59,13 +63,18 @@ def train_model(train: Train,
                                          'LIVE_CITY_NOT_WORK_CITY', 'DAYS_REGISTRATION', 'DAYS_ID_PUBLISH',
                                          'FLAG_DOCUMENT_3']]
 
+    bureau_data = bureau.merge(bureau_features, on='INDEX')
+    selected_bureau_sample = bureau_data[['SK_ID_CURR', 'CREDIT_LIMIT_ABOVE_ZERO', 'HAS_DEBT',
+                                          'AMT_CREDIT_SUM_OVERDUE']]
+
     previous_application_data = previous_application_df.merge(previous_application_features_df, on='INDEX')
-    previous_application_data = previous_application_data[['SK_ID_PREV', 'SK_ID_CURR', 'APPLIED_AWARDED_AMOUNT_DIFF',
+    p_application_df = previous_application_data[['SK_ID_PREV', 'SK_ID_CURR', 'APPLIED_AWARDED_AMOUNT_DIFF',
                                                          'GOODS_PRICE_APPLIED_DIFF']]
 
     # Merge all of them
-    dff = installments_df.merge(application_data, on='SK_ID_CURR').merge(previous_application_data, on=['SK_ID_PREV',
-                                                                                                      'SK_ID_CURR'])
+    dff = installments_df.merge(selected_bureau_sample, on=['SK_ID_CURR']).merge(application_data,
+                                                                           on='SK_ID_CURR').merge(
+        p_application_df, on=['SK_ID_PREV', 'SK_ID_CURR'])
     # Drop all null rows
     dff = dff.dropna()
     # Obtain the X and y variables

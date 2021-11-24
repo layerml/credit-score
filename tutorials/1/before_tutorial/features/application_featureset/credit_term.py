@@ -7,7 +7,7 @@ from typing import Any
 
 def build_feature(application_dataset: Dataset("application_train")) -> Any:
     df = application_dataset.to_pandas()
-    df['INCOME_CREDIT_RATIO'] = df['AMT_CREDIT'] / df['AMT_INCOME_TOTAL']
-    data = df[['INDEX', 'INCOME_CREDIT_RATIO']]
+    df['CREDIT_TERM'] = df['AMT_ANNUITY'] / df['AMT_CREDIT']
+    data = df[['INDEX', 'CREDIT_TERM']]
 
     return data
