@@ -116,6 +116,7 @@ layer start model credit_score_model
 ```
 
 ```yaml
+(layer-env) derrickmwiti@Derricks-MacBook-Pro after_tutorial % layer start model credit_score_model
 Layer 0.8.14 using https://beta.layer.co
 📁 Loading the project under /Users/derrickmwiti/PycharmProjects/Layer-videos/credit-score/tutorials/4/after_tutorial
 🔎 Found 4 datasets, 3 featuresets and 1 model
@@ -132,4 +133,5 @@ Layer 0.8.14 using https://beta.layer.co
 ✅ 2021-11-24 14:32:16 | model       credit_score_model             ━━━━━━━━━━━━━━━━━━━━━━ DONE      [558213ms]                                    
                                      https://beta.layer.co/models/181c5809-b3b1-4246-a9b2-b882fda417e9/trains/c0d0a77b-360f-4d87-adda-ca904b78c9ef 
 LAYER RUN SUCCEEDED in 581994ms
+
 ```
