@@ -1,0 +1,41 @@
+apiVersion: 1
+type: model
+# Name and description of our model
+name: "credit_score_model"
+description: "Credit score model"
+
+training:
+  name: credit_score_model_training
+  description: "My Model Training"
+
+  # The source model definition file with a `train_model` method
+  entrypoint: model.py
+  # https://docs.beta.layer.co/docs/models/hyperparametertuning
+  hyperparameters:
+    strategy: "Random"
+    max_trials: 5
+    maximize: "avg_precision"
+    tuning:
+      learning_rate:
+        type: "float"
+        min: 0.01
+        max: 0.9
+      l2_regularization:
+        type: "float"
+        min: 0.0
+        max: 0.9
+      max_depth:
+        type: "integer"
+        values: [ 1, 3, 5,6 ]
+      max_iter:
+        type: "integer"
+        values: [ 100, 300, 500,600 ]
+      min_samples_leaf:
+        type: "integer"
+        values: [ 10, 30, 50,60 ]
+
+  # File includes the required Python libraries with their correct versions
+  environment: requirements.txt
+    # The software and hardware environment needed for this training,
+    # as defined in https://docs.beta.layer.co/docs/reference/fabrics
+  fabric: "f-medium"
