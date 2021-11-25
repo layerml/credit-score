@@ -13,7 +13,7 @@ training:
   # https://docs.beta.layer.co/docs/models/hyperparametertuning
   hyperparameters:
     strategy: "Random"
-    max_trials: 5
+    max_trials: 1
     maximize: "avg_precision"
     tuning:
       learning_rate:

@@ -10,7 +10,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
-from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.metrics import average_precision_score, roc_auc_score, precision_score, recall_score, f1_score
@@ -102,7 +101,6 @@ def train_model(train: Train,
     clustering_model_train = clustering_model.get_train()
     predictions = clustering_model_train.predict(clustering_data)
     dff['cluster'] = predictions
-
     # Obtain the X and y variables
     X = dff.drop(["SK_ID_PREV", "SK_ID_CURR", "TARGET"], axis=1)
     y = dff["TARGET"]
@@ -111,7 +109,8 @@ def train_model(train: Train,
     test_size = 0.3
     # Log parameters, these can be used for comparing different models on the model catalog
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size,
-                                                        random_state=random_state)
+
+                                                  random_state=random_state)
     # Here we register input & output of the train. Layer will use
     # this registers to extract the signature of the model and calculate
     # the drift
