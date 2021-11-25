@@ -74,7 +74,9 @@ LAYER RUN SUCCEEDED in 1995499ms
 ```
 ### Step 1: Add tuning parameters 
 The first step is to update the model YAML file with the search parameters. These are added under the `hyperparameters` 
-key. Here is the updated YAML file:
+key. In this case, we'll implement the Random search strategy. We maximize the average precision. 
+
+Here is the updated YAML file:
 ```yaml
 apiVersion: 1
 type: model
