@@ -859,14 +859,20 @@ layer start
 Layer 0.8.14 using https://beta.layer.co
 📁 Loading the project under /Users/derrickmwiti/PycharmProjects/Layer-videos/credit-score/main-project
 🔎 Found 3 datasets, 2 featuresets and 1 model
-📔 Session logs at /Users/derrickmwiti/.layer/logs/20211126T125208-session-9df1e7ed-7c4e-438b-b189-7e9a478ff13d.log
-💾 Starting at 2021-11-26 12:52:11...
-✅ 2021-11-26 12:52:11 | dataset     application_train              ━━━━━━━━━━━━━━━━━━━━━━ DONE      [416ms]  
-✅ 2021-11-26 12:52:11 | dataset     previous_application           ━━━━━━━━━━━━━━━━━━━━━━ DONE      [789ms]  
-✅ 2021-11-26 12:52:11 | dataset     installments_payments          ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1151ms] 
-⠹  2021-11-26 12:52:12 | featureset  application_features           ━━━━━━━━━━━━━━━━━━━━━━ SAVING    [8593ms] 
-⠹  2021-11-26 12:52:12 | featureset  previous_application_features  ━━━━━━━━━━━━━━━━━━━━━━ SAVING    [8588ms] 
-⠹  2021-11-26 12:52:21 | model       credit_score_model             ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms] 
+📔 Session logs at /Users/derrickmwiti/.layer/logs/20211126T135803-session-d6e5cdbb-f43f-48db-a550-3fff8c73313d.log
+💾 Starting at 2021-11-26 13:58:06...
+🔵 Pipeline run id: 4eca5c7b-f184-4cda-af75-d2325757fdab
+✅ 2021-11-26 13:58:06 | dataset     previous_application           ━━━━━━━━━━━━━━━━━━━━━━ DONE      [465ms]                                       
+✅ 2021-11-26 13:58:06 | dataset     installments_payments          ━━━━━━━━━━━━━━━━━━━━━━ DONE      [850ms]                                       
+✅ 2021-11-26 13:58:06 | dataset     application_train              ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1231ms]                                      
+✅ 2021-11-26 13:58:27 | featureset  previous_application_features  ━━━━━━━━━━━━━━━━━━━━━━ DONE      [75693ms]                                     
+                                     https://beta.layer.co/features/d46deeb8-0f0a-45a9-9ee0-d922f1a1163c                                           
+✅ 2021-11-26 13:58:27 | featureset  application_features           ━━━━━━━━━━━━━━━━━━━━━━ DONE      [92099ms]                                     
+                                     https://beta.layer.co/features/6dd8b3fe-7d4b-44db-a511-74c516c0de2d                                           
+✅ 2021-11-26 13:59:59 | model       credit_score_model             ━━━━━━━━━━━━━━━━━━━━━━ DONE      [106976ms]                                    
+                                     https://beta.layer.co/models/181c5809-b3b1-4246-a9b2-b882fda417e9/trains/bab42371-dc94-4527-bf48-4a645b050ae6 
+LAYER RUN SUCCEEDED in 219358ms
+
 ```
 Once the project runs successfully, you will get links to feature sets on the data catalogs and the model on the model 
 catalog. 
