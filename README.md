@@ -60,11 +60,12 @@ File structure:
 ```
 ## Dataset definition 
 The first step is to link all the datasets that we will use in this project. We will use the following datasets:
-The application data
-The installment payments data
-The previous application data
+- The application data
+- The installment payments data
+- The previous application data
 
-In Layer, we define datasets in a YAML file containing the `dataset` key. Create a folder for each dataset. Each folder will have a YAML file for configuring the dataset. The folders are not compulsory but good for organizing the project. 
+In Layer, we define datasets in a YAML file containing the `dataset` key. Create a folder for each dataset. Each folder
+will have a YAML file for configuring the dataset. The folders are not compulsory but good for organizing the project. 
 ```yaml
 |____data
 | |____installments
@@ -75,9 +76,11 @@ In Layer, we define datasets in a YAML file containing the `dataset` key. Create
 | | |____previous_application_dataset.yaml
 ```
 
-In the YAML file we define a `materialization` key with the `target` and `table_name` subkeys. The `target` refers to the integration name as defined in your Layer account. The `table_name` refers to the name of the table in that data source integration. 
+In the YAML file we define a `materialization` key with the `target` and `table_name` subkeys. The `target` refers to 
+the integration name as defined in your Layer account. The `table_name` refers to the name of the table in that data source integration. 
 
 Let’s take a look at the individual YAML files:
+
 `installments_data.yaml`:
 ```yaml
 apiVersion: 1
@@ -120,7 +123,8 @@ materialization:
     table_name: "previous_application"
 ```
 After defining the datasets, the next step is to create the features needed for the project. 
-Create features 
+
+### Create features 
 In this project, we’ll define the features under a `features` folder. You can use a folder or not. The most important thing is to ensure that you create YAML files with the `featureset` type. We will create two feature sets:
 - Application features and 
 - Previous application features. 
@@ -192,6 +196,7 @@ materialization:
 ```
 
 Let’s take a look at the individual application features. 
+
 `annuity_income_ratio.py`:
 ```python
 from layer import Dataset
@@ -263,6 +268,7 @@ def build_feature(application_dataset: Dataset("application_train")) -> Any:
 ```
 
 The previous application features are defined similarly. 
+
 ### Model definition 
 The next step is to define the model. First, we need to set up its configuration inside a YAML file. The file must 
 declare `type: model`. This is what informs Layer that the file contains a model’s configuration. Apart from declaring 
