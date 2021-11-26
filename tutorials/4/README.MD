@@ -3,10 +3,10 @@ In the last tutorial we used the newly created features to create a clustering m
 model to create a new feature known as `cluster`. We'll then add this feature to the existing training data and train a 
 new credit scoring model. 
 ### Install and run
-To checkout the complete project after following this tutorial run:
+Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
-cd credit-score/tutorials/4/after_tutorial
+cd credit-score/tutorials/4/before_tutorial
 ```
 Folder structure:
 ```yaml

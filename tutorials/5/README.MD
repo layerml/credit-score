@@ -5,10 +5,10 @@ on the credit score model. Layer allows you to tune your model using various str
 [Grid](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and Manual. 
 
 ### Install and run
-To checkout the complete project after following this tutorial run:
+Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
-cd credit-score/tutorials/5/after_tutorial
+cd credit-score/tutorials/5/before_tutorial
 ```
 Folder structure:
 ```yaml

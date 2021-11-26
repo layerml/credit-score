@@ -2,10 +2,10 @@
 On this page, you will learn how to add a new dataset and feature set to an existing Layer project. 
 
 ### Install and run
-To checkout the complete project after following this tutorial run:
+Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
-cd credit-score/tutorials/1/after_tutorial
+cd credit-score/tutorials/1/before_tutorial
 ```
 Folder structure:
 ````yaml

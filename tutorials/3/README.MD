@@ -3,10 +3,10 @@ In this tutorial we will look how we can use the new features created in tutoria
 fourth tutorial we will use the predictions from this model as input to credit scoring model. 
 
 ### Install and run
-To checkout the complete project after following this tutorial run:
+Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
-cd credit-score/tutorials/3/after_tutorial
+cd credit-score/tutorials/3/before_tutorial
 ```
 Folder structure:
 ```yaml

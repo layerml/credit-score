@@ -3,10 +3,10 @@ On this page, you will learn how you can use the new features created in the las
 new version of the same model. 
 
 ### Install and run
-To checkout the complete project after following this tutorial run:
+Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
-cd credit-score/tutorials/2/after_tutorial
+cd credit-score/tutorials/2/before_tutorial
 ```
 Folder structure:
 ```yaml
