@@ -1,17 +1,10 @@
-"""New Project Example
-This file demonstrates how we can develop and train our model by using the
-`features` we've developed earlier. Every ML model project
-should have a definition file like this one.
-"""
 from typing import Any
 from layer import Dataset, Train
 import layer
-# This estimator is much faster than GradientBoostingClassifier for big datasets (n_samples >= 10 000).
-# https://scikit-learn.org/stable/modules/ensemble.html#histogram-based-gradient-boosting
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.classification import GBTClassifier
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
-from sklearn.metrics import average_precision_score, roc_auc_score, precision_score, recall_score, f1_score
+
 
 def train_model(train: Train,
                 application: Dataset("application_train"),
@@ -81,7 +74,6 @@ def train_model(train: Train,
     training_size = 0.8
     random_state = 0
     test_size = 0.3
-    # Log parameters, these can be used for comparing different models on the model catalog
     training, testing = final_data.randomSplit([training_size, test_size], seed=random_state)
     # Model parameters
     labelCol = label_col
@@ -90,7 +82,7 @@ def train_model(train: Train,
     maxBins = 32
     seed = 0
     maxIter = 20
-    # log model parameters
+    # Log parameters, these can be used for comparing different models on the model catalog
     train.log_parameters({
         "labelCol": labelCol,
         "featuresCol": featuresCol,

@@ -1,4 +1,4 @@
-## How to use Layer entities in a Jupyter Notebook
+## Tutorial 6: How to use Layer entities in a Jupyter Notebook
 Layer allows us to fetch and re-use all the entities that are generated when we run our project. In this tutorial, we will
 look at how we can fetch all the entities that resulted from running the credit score project. 
 
