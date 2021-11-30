@@ -7,7 +7,7 @@ Clone the repo below to follow along with the tutorial:
 layer clone https://github.com/layerml/credit-score.git
 cd credit-score/tutorials/1/before_tutorial
 ```
-### Step 1: Adding a new dataset
+### Step 1: Add a new dataset
 You can add a new dataset to a Layer project by defining it in a `.yaml` file. In this case, we are adding the `bureau` 
 dataset to this project. Create a new folder under the data folder and create a `.yaml` file with a preferred name. The
 `yaml` file will contain the following information:
