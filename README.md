@@ -1,4 +1,4 @@
-## How to create a credit score model in Layer
+## Tutorial 0: How to create a credit score model in Layer
 A project showing how to create a credit score model with Layer. The project uses the [Home Credit Default Risk dataset](https://www.kaggle.com/c/home-credit-default-risk/overview)
 that is hosted on [Kaggle](https://www.kaggle.com/c/home-credit-default-risk/overview). 
 
