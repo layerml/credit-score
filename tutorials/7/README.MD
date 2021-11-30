@@ -528,4 +528,4 @@ vec_assember = VectorAssembler(inputCols=feat_cols, outputCol='features')
 test_data = vec_assember.transform(test)
 predictions = trained_classifier.transform(test_data)
 ```
-
+![Results](images/results.png)
