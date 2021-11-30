@@ -4,73 +4,11 @@ on the credit score model. Layer allows you to tune your model using various str
 [Random](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html), 
 [Grid](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and Manual. 
 
-### Install and run
+### Clone project starter
 Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
 cd credit-score/tutorials/5/before_tutorial
-```
-Folder structure:
-```yaml
-.
-|____.layer
-| |____project.yaml
-|____features
-| |____bureau_features
-| | |____credit_limit.py
-| | |____requirements.txt
-| | |____has_overdue_debt.py
-| | |____has_debt.py
-| | |____bureau.yaml
-| |____application_featureset
-| | |____application_dataset.yaml
-| | |____requirements.txt
-| | |____days_employed_ratio.py
-| | |____goods_price_diff.py
-| | |____credit_income_ratio.py
-| | |____annuity_income_ratio.py
-| | |____credit_term.py
-| |____previous_application_featureset
-| | |____requirements.txt
-| | |____applied_awarded_amount_diff.py
-| | |____previous_app_features.yaml
-| | |____goods_price_applied_diff.py
-|____models
-| |____credit_score
-| | |____requirements.txt
-| | |____credit_score_model.yaml
-| | |____model.py
-|____data
-| |____installments
-| | |____installments_data.yaml
-| |____bureau
-| | |____bureau.yaml
-| |____application_train
-| | |____application_data.yaml
-| |____previous_application
-| | |____previous_application_dataset.yaml
-
-```
-To run: 
-```yaml
-(layer-env) derrickmwiti@Derricks-MacBook-Pro after_tutorial % layer start model credit_score_model           
-Layer 0.8.14 using https://beta.layer.co
-📁 Loading the project under /Users/derrickmwiti/PycharmProjects/Layer-videos/credit-score/tutorials/5/after_tutorial
-🔎 Found 4 datasets, 3 featuresets and 1 model
-📔 Session logs at /Users/derrickmwiti/.layer/logs/20211124T201614-session-b3aa9d22-5a56-4fab-acef-9dc8a57de43c.log
-💾 Starting at 2021-11-24 20:16:17...
-🔵 Pipeline run id: 0111d7d1-b034-4fa1-a9a5-7b7bda680970
-✅ 2021-11-24 20:16:17 | dataset     previous_application           ━━━━━━━━━━━━━━━━━━━━━━ DONE      [406ms]                                       
-✅ 2021-11-24 20:16:17 | dataset     application_train              ━━━━━━━━━━━━━━━━━━━━━━ DONE      [785ms]                                       
-✅ 2021-11-24 20:16:17 | dataset     installments_payments          ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1148ms]                                      
-✅ 2021-11-24 20:16:17 | dataset     bureau                         ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1521ms]                                      
-⠸  2021-11-24 20:49:32 | featureset  bureau_features                ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-⠸  2021-11-24 20:49:32 | featureset  previous_application_features  ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-⠸  2021-11-24 20:49:32 | featureset  application_features           ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-✅ 2021-11-24 20:16:52 | model       credit_score_model             ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1960684ms]                                   
-                                     https://beta.layer.co/models/181c5809-b3b1-4246-a9b2-b882fda417e9/trains/7d674b54-c62f-4333-92eb-7f316445d77b 
-LAYER RUN SUCCEEDED in 1995499ms
-
 ```
 ### Step 1: Add tuning parameters 
 The first step is to update the model YAML file with the search parameters. These are added under the `hyperparameters` 

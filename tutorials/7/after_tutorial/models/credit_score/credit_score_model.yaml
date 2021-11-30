@@ -1,0 +1,18 @@
+apiVersion: 1
+type: model
+# Name and description of our model
+name: "spark_credit_score_model"
+description: "Spark Credit score model"
+
+training:
+  name: spark_credit_score_model_training
+  description: "Spark Model Training"
+
+  # The source model definition file with a `train_model` method
+  entrypoint: model.py
+
+  # File includes the required python libraries with their correct versions
+  environment: requirements.txt
+    # The software and hardware environment needed for this training,
+    # as defined in https://docs.beta.layer.co/docs/reference/fabrics
+  fabric: "f-medium"

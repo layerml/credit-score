@@ -2,74 +2,11 @@
 In this tutorial we will look how we can use the new features created in tutorial 1 to create a clustering model. In the
 fourth tutorial we will use the predictions from this model as input to credit scoring model. 
 
-### Install and run
+### Clone project starter
 Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
 cd credit-score/tutorials/3/before_tutorial
-```
-Folder structure:
-```yaml
-.
-|____.layer
-| |____project.yaml
-|____features
-| |____bureau_features
-| | |____credit_limit.py
-| | |____requirements.txt
-| | |____has_overdue_debt.py
-| | |____has_debt.py
-| | |____bureau.yaml
-| |____application_featureset
-| | |____application_dataset.yaml
-| | |____requirements.txt
-| | |____days_employed_ratio.py
-| | |____goods_price_diff.py
-| | |____credit_income_ratio.py
-| | |____annuity_income_ratio.py
-| | |____credit_term.py
-| |____previous_application_featureset
-| | |____requirements.txt
-| | |____applied_awarded_amount_diff.py
-| | |____previous_app_features.yaml
-| | |____goods_price_applied_diff.py
-|____models
-| |____clustering
-| | |____requirements.txt
-| | |____model.py
-| | |____clustering_model.yaml
-|____data
-| |____installments
-| | |____installments_data.yaml
-| |____bureau
-| | |____bureau.yaml
-| |____application_train
-| | |____application_data.yaml
-| |____previous_application
-| | |____previous_application_dataset.yaml
-```
-To run:
-```yaml
-layer start model churn model
-```
-```yaml
-(layer-env) derrickmwiti@Derricks-MacBook-Pro after_tutorial % layer start model clustering_model  
-Layer 0.8.14 using https://beta.layer.co
-📁 Loading the project under /Users/derrickmwiti/PycharmProjects/Layer-videos/credit-score/tutorials/3/after_tutorial
-🔎 Found 4 datasets, 3 featuresets and 1 model
-📔 Session logs at /Users/derrickmwiti/.layer/logs/20211124T133450-session-66472a72-7304-4ebd-a02d-79b4f265b2bb.log
-💾 Starting at 2021-11-24 13:34:53...
-🔵 Pipeline run id: 31628564-90fd-4f82-a294-0be63c354346
-✅ 2021-11-24 13:34:53 | dataset     application_train              ━━━━━━━━━━━━━━━━━━━━━━ DONE      [399ms]                                       
-✅ 2021-11-24 13:34:53 | dataset     previous_application           ━━━━━━━━━━━━━━━━━━━━━━ DONE      [783ms]                                       
-✅ 2021-11-24 13:34:53 | dataset     installments_payments          ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1165ms]                                      
-✅ 2021-11-24 13:34:53 | dataset     bureau                         ━━━━━━━━━━━━━━━━━━━━━━ DONE      [1539ms]                                      
-⠏  2021-11-24 13:36:44 | featureset  previous_application_features  ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-⠏  2021-11-24 13:36:44 | featureset  bureau_features                ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-⠏  2021-11-24 13:36:44 | featureset  application_features           ━━━━━━━━━━━━━━━━━━━━━━ PENDING   [0ms]                                         
-✅ 2021-11-24 13:35:21 | model       clustering_model               ━━━━━━━━━━━━━━━━━━━━━━ DONE      [82903ms]                                     
-                                     https://beta.layer.co/models/692d4296-3d2a-4518-bbda-55294a25597b/trains/c0571ce2-37e9-4b8c-a627-3a26a25d5993 
-LAYER RUN SUCCEEDED in 110382ms
 ```
 ### Step 1: Update the model file to use the new featureset
 First, we need to inject the features and datasets to the model training function:

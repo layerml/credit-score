@@ -1,48 +1,12 @@
 ## Tutorial 1: How to add new datasets and feature sets to an existing project
 On this page, you will learn how to add a new dataset and feature set to an existing Layer project. 
 
-### Install and run
+### Clone project starter
 Clone the repo below to follow along with the tutorial:
 ```yaml
 layer clone https://github.com/layerml/credit-score.git
 cd credit-score/tutorials/1/before_tutorial
 ```
-Folder structure:
-````yaml
-.
-|____.layer
-| |____project.yaml
-|____features
-| |____bureau_features
-| | |____credit_limit.py
-| | |____requirements.txt
-| | |____has_overdue_debt.py
-| | |____has_debt.py
-| | |____bureau.yaml
-| |____application_featureset
-| | |____application_dataset.yaml
-| | |____requirements.txt
-| | |____days_employed_ratio.py
-| | |____goods_price_diff.py
-| | |____credit_income_ratio.py
-| | |____annuity_income_ratio.py
-| | |____credit_term.py
-| |____previous_application_featureset
-| | |____requirements.txt
-| | |____applied_awarded_amount_diff.py
-| | |____previous_app_features.yaml
-| | |____goods_price_applied_diff.py
-|____data
-| |____installments
-| | |____installments_data.yaml
-| |____bureau
-| | |____bureau.yaml
-| |____application_train
-| | |____application_data.yaml
-| |____previous_application
-| | |____previous_application_dataset.yaml
-
-````
 ### Step 1: Adding a new dataset
 You can add a new dataset to a Layer project by defining it in a `.yaml` file. In this case, we are adding the `bureau` 
 dataset to this project. Create a new folder under the data folder and create a `.yaml` file with a preferred name. The
