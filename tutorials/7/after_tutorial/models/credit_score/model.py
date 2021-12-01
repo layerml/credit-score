@@ -73,7 +73,7 @@ def train_model(train: Train,
     # Split the data into a training and testing set
     training_size = 0.8
     random_state = 0
-    test_size = 0.3
+    test_size = 0.2
     training, testing = final_data.randomSplit([training_size, test_size], seed=random_state)
     # Model parameters
     labelCol = label_col
