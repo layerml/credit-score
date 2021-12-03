@@ -161,6 +161,7 @@ You can now train this model using the `layer start` command.
 ```yaml
 layer start model clustering_model 
 ```
+Checkout the `after_tutorial` folder for the complete project code. 
 
 In the next tutorial, we will this model to predict the cluster for each loan and use the to train a credit scoring algorithm. 
 See you there. 

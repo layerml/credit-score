@@ -72,3 +72,4 @@ Layer 0.8.14 using https://beta.layer.co
 LAYER RUN SUCCEEDED in 581994ms
 
 ```
+Checkout the `after_tutorial` folder for the complete project code. 

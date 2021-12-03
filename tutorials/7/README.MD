@@ -529,3 +529,5 @@ test_data = vec_assember.transform(test)
 predictions = trained_classifier.transform(test_data)
 ```
 ![Results](images/results.png)
+
+Checkout the `after_tutorial` folder for the complete project code. 

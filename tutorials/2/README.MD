@@ -175,5 +175,7 @@ Layer 0.8.14 using https://beta.layer.co
                                      https://beta.layer.co/models/181c5809-b3b1-4246-a9b2-b882fda417e9/trains/1819ec47-0689-447d-9a31-3c234605a55e 
 LAYER RUN SUCCEEDED in 570194ms
 ```
+Checkout the `after_tutorial` folder for the complete project code.
+
 You have now seen how to use newly generated features to create a new version of the same model. In the next tutorial, 
 we will look at how you can use the same features to create a different type of model. 

@@ -77,3 +77,5 @@ model = HistGradientBoostingClassifier(learning_rate=learning_rate,
 ```
 
 You have now seen how to implement hyperparameter tuning for your Layer project. 
+
+Checkout the `after_tutorial` folder for the complete project code. 
