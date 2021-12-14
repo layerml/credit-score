@@ -17,7 +17,7 @@ dataset to this project. Create a new folder under the data folder and create a 
 
 apiVersion: 1
 # The type of entity
-type: dataset
+type: raw_dataset
 # Unique name of this dataset which will be used in this project to refer to this dataset
 name: "bureau"
 # The table name and data source integration where the table can be found. 

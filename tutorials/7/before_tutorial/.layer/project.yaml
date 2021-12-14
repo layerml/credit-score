@@ -1,9 +1,5 @@
-# New Project Example
-#
 # Project configuration file
 # For more information on Project Configuration: https://docs.beta.layer.co/docs/projects/project-yml
-
 apiVersion: 1
-
 # Name of your project
-name: "Credit Score Project Tutorial 1"
+name: "Credit_Score_Project_Tutorial_7"

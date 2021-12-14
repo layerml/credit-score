@@ -77,7 +77,8 @@ will have a YAML file for configuring the dataset. The folders are not compulsor
 ```
 
 In the YAML file we define a `materialization` key with the `target` and `table_name` subkeys. The `target` refers to 
-the integration name as defined in your Layer account. The `table_name` refers to the name of the table in that data source integration. 
+the integration name as defined in your Layer account. The `table_name` refers to the name of the table in that data 
+source integration. 
 
 Let’s take a look at the individual YAML files:
 
@@ -88,7 +89,7 @@ apiVersion: 1
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
 name: "installments_payments"
-type: dataset
+type: raw_dataset
 
 materialization:
     target: layer-public-datasets
@@ -98,7 +99,7 @@ materialization:
 
 ```yaml
 apiVersion: 1
-type: dataset
+type: raw_dataset
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
 name: "application_train"
@@ -116,7 +117,7 @@ apiVersion: 1
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
 name: "previous_application"
-type: dataset
+type: raw_dataset
 
 materialization:
     target: layer-public-datasets

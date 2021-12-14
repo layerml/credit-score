@@ -1,7 +1,7 @@
 # For more information on Dataset Configuration: https://docs.beta.layer.co/docs/datacatalog/datasets
 
 apiVersion: 1
-type: dataset
+type: raw_dataset
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
 name: "bureau"
