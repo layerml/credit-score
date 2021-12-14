@@ -4,6 +4,6 @@ type: raw_dataset
 # Unique name of this dataset which will be used in this project to
 # refer to this dataset
 name: "application_train"
-materialization:
-    target: layer-public-datasets
-    table_name: "application_train"
+integration:
+    name: layer-public-datasets
+    table: "application_train"

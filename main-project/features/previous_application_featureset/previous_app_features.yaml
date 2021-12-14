@@ -18,4 +18,4 @@ features:
       environment: requirements.txt
 
 materialization:
-    target: layer-public-datasets
+    integration_name: layer-public-datasets

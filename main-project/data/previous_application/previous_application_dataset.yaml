@@ -4,6 +4,6 @@ apiVersion: 1
 # refer to this dataset
 name: "previous_application"
 type: raw_dataset
-materialization:
-    target: layer-public-datasets
-    table_name: "previous_application"
+integration:
+    name: layer-public-datasets
+    table: "previous_application"

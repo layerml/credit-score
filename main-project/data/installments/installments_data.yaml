@@ -4,6 +4,6 @@ apiVersion: 1
 # refer to this dataset
 name: "installments_payments"
 type: raw_dataset
-materialization:
-    target: layer-public-datasets
-    table_name: "installments_payments"
+integration:
+    name: layer-public-datasets
+    table: "installments_payments"
